@@ -85,8 +85,14 @@ loader.load('websitedemo.glb', function ( gltf ) {
 });
 
 function onDocumentMouseDown( event ) {
-
+  console.log('event:');
+  console.log(event);
   event.preventDefault();
+
+  if (event.type === 'touchstart') {
+    event.clientX = event.touches[0].clientX;
+    event.clientY = event.touches[0].clientY;
+  }
 
   mouse.x = ( event.clientX / renderer.domElement.clientWidth ) * 2 - 1;
   mouse.y = -( event.clientY / renderer.domElement.clientHeight ) * 2 + 1;
@@ -102,10 +108,11 @@ function onDocumentMouseDown( event ) {
 }
 
 var clickEvent = (function() {
-  if ('ontouchstart' in document.documentElement === true)
+  if ('ontouchstart' in document.documentElement === true) {
     return 'touchstart';
-  else
+  } else {
     return 'click';
+  }
 })();
 
 window.addEventListener(clickEvent, onDocumentMouseDown, false);
