@@ -33,7 +33,7 @@ camera.position.z = 5;
 
 const loader = new GLTFLoader();
 
-loader.load( 'src/assets/websitedemo.glb', function ( gltf ) {
+loader.load( 'websitedemo.glb', function ( gltf ) {
   console.log(gltf);
   console.log('Loading gltf');
   scene.add( gltf.scene );
