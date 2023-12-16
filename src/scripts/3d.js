@@ -13,13 +13,14 @@ scene.background = new THREE.Color( 0x999999 );
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 const directionalLight1 = new THREE.DirectionalLight( 0xffffff, 1 );
 directionalLight1.position.set( 1, 1, 0 );
-scene.add( directionalLight1 );
 const directionalLight2 = new THREE.DirectionalLight( 0xffffff, 1 );
 directionalLight2.position.set( 0, 1, 1);
-scene.add( directionalLight2 );
 const directionalLight3 = new THREE.DirectionalLight( 0xffffff, 1 );
 directionalLight3.position.set( 1, 1, 1);
-scene.add( directionalLight3 );
+camera.add( directionalLight1 );
+camera.add( directionalLight2 );
+camera.add( directionalLight3 );
+scene.add( camera );
 
 const renderer = new THREE.WebGLRenderer({
   precision: 'highp',
@@ -49,6 +50,7 @@ loader.load('websitedemo.glb', function ( gltf ) {
   
   let sphere = model.children[0];
   let cube = model.children[1];
+  let textHome = model.children[2];
   sphere.callback = function() { 
     console.log( this.name );
     let curVal = document.getElementById('sphere-counter').innerHTML;
@@ -61,12 +63,15 @@ loader.load('websitedemo.glb', function ( gltf ) {
   }
   var material = new THREE.MeshStandardMaterial({ side: THREE.DoubleSide, color: new THREE.Color( 0x6495ED ) });
   sphere.material = material;
+
+  var textMaterial = new THREE.MeshStandardMaterial({ side: THREE.DoubleSide, color: new THREE.Color( 0x000000 ) });
+  textHome.material = textMaterial;
   scene.add(model );
   renderer.render(scene, camera);
   function animate() {
     requestAnimationFrame( animate );
-    model.rotation.x += 0.0001;
-    model.rotation.y += 0.001;
+    model.rotation.x -= 0.0001;
+    model.rotation.y -= 0.001;
     
     controls.update();
     renderer.render( scene, camera );
@@ -112,17 +117,4 @@ window.onresize = function () {
   renderer.setSize( window.innerWidth, window.innerHeight );
 
 };
-
-
-
-// const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
-
-
-// const renderer = new THREE.WebGLRenderer();
-// renderer.setSize( window.innerWidth, window.innerHeight );
-// document.body.appendChild( renderer.domElement );
-
-
-
-
 
