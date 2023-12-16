@@ -30,8 +30,8 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setClearColor( 0x000000, 0 );
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
-const hlp = new THREE.AxesHelper(1);
-scene.add(hlp);
+// const hlp = new THREE.AxesHelper(1);
+// scene.add(hlp);
 
 const controls = new OrbitControls( camera, renderer.domElement );
 			controls.target.set( 0, 0.5, 0 );
