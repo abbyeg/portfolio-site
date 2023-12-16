@@ -1,9 +1,13 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
 
 const scene = new THREE.Scene();
 var raycaster = new THREE.Raycaster();
+const dracoLoader = new DRACOLoader();
+dracoLoader.setDecoderPath( 'draco/gltf/' );
+
 var mouse = new THREE.Vector2();
 scene.background = new THREE.Color( 0x999999 );
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
@@ -17,7 +21,11 @@ const directionalLight3 = new THREE.DirectionalLight( 0xffffff, 1 );
 directionalLight3.position.set( 1, 1, 1);
 scene.add( directionalLight3 );
 
-const renderer = new THREE.WebGLRenderer();
+const renderer = new THREE.WebGLRenderer({
+  precision: 'highp',
+  depth: true,
+  
+});
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 const hlp = new THREE.AxesHelper(1);
@@ -32,28 +40,33 @@ const controls = new OrbitControls( camera, renderer.domElement );
 camera.position.z = 5;
 
 const loader = new GLTFLoader();
+loader.setDRACOLoader( dracoLoader );
 
-loader.load( 'websitedemo.glb', function ( gltf ) {
+loader.load('websitedemo.glb', function ( gltf ) {
   console.log(gltf);
-  console.log('Loading gltf');
-  scene.add( gltf.scene );
-  renderer.render(scene, camera); 
-  let world = gltf.scene;
-  let children = world.children;
-  children[0].callback = function() { 
+  const model = gltf.scene;
+  // model.scale.set( 2.1, 2.1, 2.1 );
+  
+  let sphere = model.children[0];
+  let cube = model.children[1];
+  sphere.callback = function() { 
     console.log( this.name );
     let curVal = document.getElementById('sphere-counter').innerHTML;
     document.getElementById('sphere-counter').innerHTML = parseInt(curVal) + 1;
   }
-  children[1].callback = function() { 
+  cube.callback = function() { 
     console.log( this.name );
     let curVal = document.getElementById('cube-counter').innerHTML;
     document.getElementById('cube-counter').innerHTML = parseInt(curVal) + 1;
   }
+  var material = new THREE.MeshStandardMaterial({ side: THREE.DoubleSide, color: new THREE.Color( 0x6495ED ) });
+  sphere.material = material;
+  scene.add(model );
+  renderer.render(scene, camera);
   function animate() {
     requestAnimationFrame( animate );
-    world.rotation.x += 0.0001;
-    world.rotation.y += 0.001;
+    model.rotation.x += 0.0001;
+    model.rotation.y += 0.001;
     
     controls.update();
     renderer.render( scene, camera );
