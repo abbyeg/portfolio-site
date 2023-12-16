@@ -70,21 +70,26 @@ function onDocumentMouseDown( event ) {
   event.preventDefault();
 
   mouse.x = ( event.clientX / renderer.domElement.clientWidth ) * 2 - 1;
-  mouse.y = - ( event.clientY / renderer.domElement.clientHeight ) * 2 + 1;
+  mouse.y = -( event.clientY / renderer.domElement.clientHeight ) * 2 + 1;
 
   raycaster.setFromCamera( mouse, camera );
 
   var intersects = raycaster.intersectObjects( scene.children ); 
 
   if ( intersects.length > 0 ) {
-
       intersects[0].object.callback();
-
   }
 
 }
 
-window.addEventListener('click', onDocumentMouseDown, false);
+var clickEvent = (function() {
+  if ('ontouchstart' in document.documentElement === true)
+    return 'touchstart';
+  else
+    return 'click';
+})();
+
+window.addEventListener(clickEvent, onDocumentMouseDown, false);
 
 window.onresize = function () {
 
