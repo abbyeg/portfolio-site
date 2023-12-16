@@ -21,12 +21,13 @@ camera.add( directionalLight1 );
 camera.add( directionalLight2 );
 camera.add( directionalLight3 );
 scene.add( camera );
+scene.background = null;
 
 const renderer = new THREE.WebGLRenderer({
-  precision: 'highp',
-  depth: true,
-  
+  antialias: false,
+  alpha:true
 });
+renderer.setClearColor( 0x000000, 0 );
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 const hlp = new THREE.AxesHelper(1);
