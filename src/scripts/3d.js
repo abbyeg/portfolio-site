@@ -3,10 +3,12 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
 
+
 const scene = new THREE.Scene();
 var raycaster = new THREE.Raycaster();
 const dracoLoader = new DRACOLoader();
 dracoLoader.setDecoderPath( 'draco/gltf/' );
+const renderCanvas = document.getElementById('render-canvas');
 
 var mouse = new THREE.Vector2();
 scene.background = new THREE.Color( 0x999999 );
@@ -25,11 +27,12 @@ scene.background = null;
 
 const renderer = new THREE.WebGLRenderer({
   antialias: false,
-  alpha:true
+  alpha:true,
+  canvas: renderCanvas
 });
 renderer.setClearColor( 0x000000, 0 );
 renderer.setSize( window.innerWidth, window.innerHeight );
-document.body.appendChild( renderer.domElement );
+// document.body.appendChild( renderer.domElement );
 // const hlp = new THREE.AxesHelper(1);
 // scene.add(hlp);
 
@@ -38,6 +41,7 @@ const controls = new OrbitControls( camera, renderer.domElement );
 			controls.update();
 			controls.enablePan = false;
 			controls.enableDamping = true;
+      controls.enableZoom = false;
 
 camera.position.z = 5;
 
