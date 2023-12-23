@@ -6,6 +6,7 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Work from './components/Work';
 import Home from './components/Home';
+import GlowingCursor from './components/GlowingCursor';
 
 
 const App = () => {
@@ -20,8 +21,8 @@ const App = () => {
   }, []);
 
   return (
-    
     <Router>
+      <GlowingCursor />
       { isLoading ? (
       <div className="h-screen flex flex-wrap items-center justify-center">
         <div className="content-between">LOADING</div>

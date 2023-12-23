@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import GalleryItem from './GalleryItem';
-import SelectFilter from './SelectFilter';
+import Dropdown from './Dropdown';
 
 const Gallery = ({ galleryRef }) => {
   const [curCategory, setCurCategory] = useState("all");
@@ -24,8 +24,8 @@ const Gallery = ({ galleryRef }) => {
 
   return (
     <div ref={galleryRef} id="work" className="h-screen">
-      <div className="text-center pt-10">
-        <SelectFilter categories={categories} setCurCategory={setCurCategory} />
+      <div className="text-center pt-2">
+        <Dropdown categories={categories} setCurCategory={setCurCategory} />
       </div>
       <div className="projects-grid flex flex-wrap p-16">
           {projects.map((project) => {

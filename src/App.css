@@ -1,4 +1,8 @@
-#root { }
+#root {
+  --cursor-color: rgba(238, 130, 238, 1);
+  --red: rgb(239, 72, 72);
+  --blue: rgb(124, 151, 239);
+}
 
 /* Animations */
 
@@ -42,6 +46,26 @@
   100% { transform: translate(5%,0) }
 }
 
+@keyframes pulse {
+	0% {
+    width: 400px;
+    height: 400px;
+    opacity: 40%;
+	}
+
+	70% {
+    width: 600px;
+    height: 600px;
+    opacity: 20%;
+	}
+
+	100% {
+    width: 400px;
+    height: 400px;
+    opacity: 40%;
+	}
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -50,10 +74,47 @@ body {
   z-index: 10;
 }
 
+#cursor-glow {
+  z-index: -10;
+  background: radial-gradient(circle at 50% 50%, var(--cursor-color) 0%, rgba(0, 188, 212, 0) 50%);
+  width: 500px;
+  height: 500px;
+  border-radius: 100%;
+  position: fixed;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  opacity: 100%;
+  animation: pulse 6s infinite;
+}
+
 .navbar-menu {
   animation: fadeIn 1.2s ease-in-out;
 }
 
 .gallery-item {
-  animation: fadeIn 1.5s ease-in-out;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+::-moz-selection {
+  color: limegreen;
+}
+::selection {
+  background-color: limegreen;
+  color: limegreen;
+}
+::-moz-selection {
+  background-color: limegreen;
+  color: limegreen;
+}
+::-o-selection {
+  background-color: limegreen;
+  color: limegreen;
+}
+::-ms-selection {
+  background-color: limegreen;
+  color: limegreen;
+}
+::-webkit-selection {
+  background-color: limegreen;
+  color: limegreen;
 }

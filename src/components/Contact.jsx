@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 const Contact = () => {
   console.log("Rendering Contact");
   return (
-  <div className="text-center font-extrabold m-6">
+  <div className="text-xs text-center font-extrabold m-6">
    Contact
   </div>);
 };

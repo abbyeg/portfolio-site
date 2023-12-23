@@ -16,7 +16,7 @@ const Home = () => {
   
   return (
     <div className="h-screen -z-10" id="canvas-container">
-      <Canvas camera={{ zoom: 2 }} >
+      <Canvas camera={{ zoom: 2,  }} >
         <Suspense fallback={null}>
           <OrbitControls enablePan={false} enableDamping={true} enableZoom={false} />
           <ambientLight intensity={0.1} />

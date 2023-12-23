@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import ColorPicker from './ColorPicker';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,6 +44,7 @@ const Navbar = () => {
     ) : (
       <div className="text-4xl z-40 cursor-pointer absolute top-0 right-0 m-6" onClick={toggleMenu}>☰</div>
     )}
+    <ColorPicker />
   </nav>
   );
 }
