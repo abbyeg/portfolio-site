@@ -17,8 +17,8 @@ const ColorPicker = () => {
   };
   
   return (
-    <div className="fixed text-4xl left-0 bottom-0 m-6">
-      <button onClick={updateColor}>O</button>
+    <div className="fixed text-6xl left-0 bottom-0 m-6">
+      <button onClick={updateColor}>*</button>
     </div>
   );
 };
