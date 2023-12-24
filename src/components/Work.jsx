@@ -1,8 +1,9 @@
+import PropTypes from 'prop-types';
 import { useRef } from 'react';
 import Gallery from './gallery/Gallery';
 
 
-const Work = () => {
+const Work = ({ content }) => {
   const galleryRef = useRef(null);
 
   const scrollToGallery = () => {
@@ -13,8 +14,13 @@ const Work = () => {
 
   console.log("Rendering Work");
   return (
-    <Gallery galleryRef={galleryRef} scrollToTop={scrollToGallery} />
+    <Gallery galleryRef={galleryRef} scrollToTop={scrollToGallery} content={content} />
   );
+};
+
+
+Work.propTypes = {
+  content: PropTypes.object.isRequired,
 };
 
 export default Work;

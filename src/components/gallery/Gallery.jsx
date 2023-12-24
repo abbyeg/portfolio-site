@@ -4,24 +4,15 @@ import GalleryItem from './GalleryItem';
 import Dropdown from './Dropdown';
 import { v4 as uuidv4 } from 'uuid';
 
-const Gallery = ({ galleryRef, scrollToTop }) => {
+const Gallery = ({ content, galleryRef, scrollToTop }) => {
   const [curCategory, setCurCategory] = useState("all");
-
+  console.log(content);
+  let projects = [...content.values()];
   let categories = [
     { display: "All", value: "all" },
     { display: "Software", value: "software" },
     { display: "Web", value: "web" },
     { display: "Writing", value: "writing" },
-  ];
-
-  let projects = [
-    { id: uuidv4(), name: "Building an Interactive Portfolio Site", sub: "Vite, React, JS, CSS, HTML", previewImage: "/proj1/preview.gif", cats: ["software", "web", "writing"], link: "/work/portfolio-project" },
-    { id: uuidv4(), name: "Real Time 3D Renderer", sub: "Rust, OpenGL", previewImage: "/proj1/preview.gif", cats: ["software"], link: "https://github.com/abbyeg" },
-    { id: uuidv4(), name: "Custom Shaders", sub: "GLSL", previewImage: "/proj1/preview.gif", cats: ["software"] },
-    { id: uuidv4(), name: "Procedural Content Generation Tool", sub: "CSS", previewImage: "/proj1/preview.gif", cats: ["software"] },
-    { id: uuidv4(), name: "Interactive Art Installation", sub: "CSS", previewImage: "/proj1/preview.gif", cats: ["software"] },
-    { id: uuidv4(), name: "Rigging and Animation Toolkit", sub: "", previewImage: "/proj1/preview.gif", cats: ["software"] },
-    { id: uuidv4(), name: "Building an Interactive Portfolio Site", sub: "Vite, React, JS, CSS, HTML", previewImage: "/proj1/preview.gif", cats: ["software", "web", "writing"] },
   ];
 
 
@@ -31,13 +22,12 @@ const Gallery = ({ galleryRef, scrollToTop }) => {
         <Dropdown categories={categories} setCurCategory={setCurCategory} />
       </div>
       <div className="projects-grid flex flex-wrap p-16">
-          {projects.map((project) => {
-            if (curCategory === "all" || project.cats.includes(curCategory)) {
-              
+          {projects.map((proj) => {
+            if (curCategory === "all" || proj.cats.includes(curCategory)) {
               return (
                 <GalleryItem
-                  key={project.id}
-                  project={project}
+                  key={proj.id}
+                  project={proj}
                 />
               );
             }
@@ -53,8 +43,9 @@ const Gallery = ({ galleryRef, scrollToTop }) => {
 }
 
 Gallery.propTypes = {
-  galleryRef: PropTypes.object,
-  scrollToTop: PropTypes.func,
+  galleryRef: PropTypes.object.isRequired,
+  scrollToTop: PropTypes.func.isRequired,
+  content: PropTypes.object.isRequired,
 };
 
 
