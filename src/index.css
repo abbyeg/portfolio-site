@@ -8,12 +8,11 @@
   font-weight: 400;
   color-scheme: light dark;
   color: rgba(170, 170, 170, 0.87);
-  background-color: rgb(221, 221, 221);
   font-synthesis: none;
   background-repeat:no-repeat;
   background-size: 100% 100vh;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
+  background-color: rgb(221, 221, 221);
 }

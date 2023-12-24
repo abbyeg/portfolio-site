@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import Gallery from './Gallery';
+import Gallery from './gallery/Gallery';
 
 
 const Work = () => {
@@ -13,10 +13,8 @@ const Work = () => {
 
   console.log("Rendering Work");
   return (
-  <div className="">
-    <button onClick={scrollToGallery}>Go to gallery</button>
-    <Gallery galleryRef={galleryRef} />
-  </div>);
+    <Gallery galleryRef={galleryRef} scrollToTop={scrollToGallery} />
+  );
 };
 
 export default Work;

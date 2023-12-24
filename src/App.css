@@ -2,6 +2,8 @@
   --cursor-color: rgba(238, 130, 238, 1);
   --red: rgb(239, 72, 72);
   --blue: rgb(124, 151, 239);
+  --background-color: rgb(221, 221, 221);
+  background-color: var(--background-color);
 }
 
 /* Animations */
@@ -29,7 +31,24 @@
   opacity: .1;
   visibility: visible;
   pointer-events: none;
-  z-index: 100;
+  z-index: 501;
+}
+
+.gallery-preview-text {
+  animation: fadeIn 1s ease;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background-color);
 }
 
 @keyframes bg-animation {
@@ -66,6 +85,26 @@
 	}
 }
 
+@keyframes pulse-btn {
+	0% {
+    opacity: 1;
+	}
+
+	50% {
+    opacity: 0.5;
+	}
+
+	100% {
+    opacity: 1;
+	}
+}
+
+.fade-load {
+  animation: fadeIn ease 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -74,8 +113,12 @@ body {
   z-index: 10;
 }
 
+#footer {
+  background-color: var(--background-color);
+}
+
 #cursor-glow {
-  z-index: -10;
+  z-index: 0;
   background: radial-gradient(circle at 50% 50%, var(--cursor-color) 0%, rgba(0, 188, 212, 0) 50%);
   width: 500px;
   height: 500px;
