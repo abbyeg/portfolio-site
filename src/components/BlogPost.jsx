@@ -1,9 +1,12 @@
 import PropTypes from 'prop-types';
 import TextContent from './layout/TextContent';
+import { useParams } from 'react-router-dom';
 
-const BlogPost = ({ post }) => {
+const BlogPost = ({ content }) => {
+  const params = useParams();
+  console.log(params);
+  let post = content.get(params.title);
   let { title, subheading, date, bodyContent } = post;
-  console.log(post);
   
   const options = {
     weekday: 'long',
@@ -28,9 +31,9 @@ const BlogPost = ({ post }) => {
         <div className="flex flex-row">
           <div className="w-full border-b-2 opacity-5 border-neutral-600 mt-3 mb-6"></div>
         </div>
-        {bodyContent.map((content) => {
+        {bodyContent.map((content, i) => {
           return (
-            <div key={content[0]} className="flex flex-row text-black text-lg font-semibold text-left mt-2 mb-4">
+            <div key={i} className="flex flex-row text-black text-lg font-semibold text-left mt-2 mb-4">
               <div>{content}</div>
             </div>);
         })}
@@ -40,7 +43,7 @@ const BlogPost = ({ post }) => {
 };
 
 BlogPost.propTypes = {
-  post: PropTypes.object.isRequired,
+  content: PropTypes.object.isRequired,
 };
 
 export default BlogPost;

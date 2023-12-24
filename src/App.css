@@ -1,8 +1,8 @@
 #root {
   --cursor-color: rgba(238, 130, 238, 1);
-  --red: rgb(239, 72, 72);
-  --blue: rgb(124, 151, 239);
   --background-color: rgb(221, 221, 221);
+  --selection-bg-color: var(--cursor-color);
+  --selection-color: limegreen;
   background-color: var(--background-color);
 }
 
@@ -139,29 +139,47 @@ body {
 }
 
 ::-moz-selection {
-  color: limegreen;
+  color: var(--selection-color);
 }
 ::selection {
-  background-color: limegreen;
-  color: limegreen;
+  background-color: var(--selection-bg-color);
+  color: var(--selection-color);
 }
 ::-moz-selection {
-  background-color: limegreen;
-  color: limegreen;
+  background-color: var(--selection-bg-color);
+  color: var(--selection-color);
 }
 ::-o-selection {
-  background-color: limegreen;
-  color: limegreen;
+  background-color: var(--selection-bg-color);
+  color: var(--selection-color);
 }
 ::-ms-selection {
-  background-color: limegreen;
-  color: limegreen;
+  background-color: var(--selection-bg-color);
+  color: var(--selection-color);
 }
 ::-webkit-selection {
-  background-color: limegreen;
-  color: limegreen;
+  background-color: var(--selection-bg-color);
+  color: var(--selection-color);
 }
 
 .filter-white {
   filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(216deg) brightness(102%) contrast(101%);
+}
+
+@keyframes subtle {
+  0% {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+  50% {
+    opacity: .5;
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(360deg);
+  }
+}
+
+.slow-pulse {
+  animation: subtle 5s cubic-bezier(0.4, 0, 0.6, 1) 1;
 }

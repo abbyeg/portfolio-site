@@ -16,7 +16,7 @@ const About = () => {
           <div className="flex flex-row">
             <div className="basis-1/4 text-right font-extrabold m-6"></div>
             <div className="basis-1/2 font-bold m-6">
-              If you&apos;re interested in reaching out, please send any questions or inquiries <span className="hover:underline"><a href="mailto:studio@abbygrobbel.com">here.</a></span>
+              If you&apos;d like to connect, please send any questions or inquiries <span className="underline"><a href="mailto:studio@abbygrobbel.com">here.</a></span>
             </div>
           </div>
         </div>

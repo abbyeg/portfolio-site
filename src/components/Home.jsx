@@ -5,7 +5,6 @@ import { DoubleSide, MeshStandardMaterial } from 'three';
 
 
 const Home = () => {
-  console.log("Rendering Home");
   const loaded = useGLTF('/websitedemo.glb')
 
   let sphere = loaded.scene.children[0];
@@ -13,7 +12,6 @@ const Home = () => {
   let scene = loaded.scene;
   scene.background = null;
   scene.rotation.y = -Math.PI / 2; // Rotate 90 degrees clockwise
-  console.log(scene);
   
   return (
     <div className="h-screen -z-10" id="canvas-container">

@@ -9,7 +9,7 @@ const TextContent = ({ children }) => {
 };
 
 TextContent.propTypes = {
-  children: PropTypes.children,
+  children: PropTypes.node.isRequired,
 };
 
 

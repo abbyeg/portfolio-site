@@ -2,20 +2,11 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import GalleryItem from './GalleryItem';
 import Dropdown from './Dropdown';
-import { v4 as uuidv4 } from 'uuid';
 
-const Gallery = ({ content, galleryRef, scrollToTop }) => {
+const Gallery = ({ content, categories, galleryRef, scrollToTop }) => {
   const [curCategory, setCurCategory] = useState("all");
-  console.log(content);
   let projects = [...content.values()];
-  let categories = [
-    { display: "All", value: "all" },
-    { display: "Software", value: "software" },
-    { display: "Web", value: "web" },
-    { display: "Writing", value: "writing" },
-  ];
-
-
+  
   return (
     <div ref={galleryRef} id="work">
       <div className="text-center pt-2">
@@ -46,6 +37,7 @@ Gallery.propTypes = {
   galleryRef: PropTypes.object.isRequired,
   scrollToTop: PropTypes.func.isRequired,
   content: PropTypes.object.isRequired,
+  categories: PropTypes.array.isRequired,
 };
 
 

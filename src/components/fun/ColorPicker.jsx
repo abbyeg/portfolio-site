@@ -9,9 +9,10 @@ const ColorPicker = () => {
   ];
   
   const updateColor = () => {
-    console.log("update color");
     let pos = getRandomInt(colors.length);
     document.getElementById('cursor-glow').style.setProperty('--cursor-color', colors[pos]);
+    let r = document.querySelector('#root');
+    r.style.setProperty('--selection-bg-color', colors[pos]);
   };
 
   const getRandomInt = (max) => {
@@ -20,7 +21,7 @@ const ColorPicker = () => {
   
   return (
     <div className="fixed text-6xl left-0 bottom-0 m-6">
-      <button onClick={updateColor}>*</button>
+      <button className="slow-pulse" onClick={updateColor}>*</button>
     </div>
   );
 };

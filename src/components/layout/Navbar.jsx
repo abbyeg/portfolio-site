@@ -19,7 +19,7 @@ const Navbar = () => {
         </div>
     {isOpen ? (
       <div className="navbar-menu">
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 z-0" onClick={toggleMenu}>
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-0" onClick={toggleMenu}>
           <div className="text-4xl z-40 cursor-pointer absolute top-0 right-0 m-6">x</div>
           <div>
             <ul className="text-center flex-col text-white text-4xl font-bold flex md:flex-row">
@@ -28,12 +28,16 @@ const Navbar = () => {
                   ABOUT
                 </Link>
               </li>
-              <li className="navbar-item p-3 hover:underline">
+              {/* <li className="navbar-item p-3 hover:underline">
                 <Link to="/work" relative="path">
                   WORK
                 </Link>
+              </li> */}
+              <li className="navbar-item p-3">
+                <div className="flex flex-row">
+                  <Socials filterWhite={true} />
+                </div>
               </li>
-              <li className="navbar-item p-3"><div className="flex flex-row"><Socials filterWhite={true} /></div></li>
             </ul>
           </div>
         </div>

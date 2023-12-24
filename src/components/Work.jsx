@@ -3,24 +3,22 @@ import { useRef } from 'react';
 import Gallery from './gallery/Gallery';
 
 
-const Work = ({ content }) => {
+const Work = ({ content, categories }) => {
   const galleryRef = useRef(null);
 
   const scrollToGallery = () => {
-    console.log("Scrolling");
-    console.log(galleryRef);
     galleryRef.current.scrollIntoView();
   }  
 
-  console.log("Rendering Work");
   return (
-    <Gallery galleryRef={galleryRef} scrollToTop={scrollToGallery} content={content} />
+    <Gallery galleryRef={galleryRef} scrollToTop={scrollToGallery} content={content} categories={categories} />
   );
 };
 
 
 Work.propTypes = {
   content: PropTypes.object.isRequired,
+  categories: PropTypes.array.isRequired,
 };
 
 export default Work;
