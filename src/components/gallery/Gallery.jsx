@@ -15,13 +15,13 @@ const Gallery = ({ galleryRef, scrollToTop }) => {
   ];
 
   let projects = [
-    { id: uuidv4(), name: "Building an Interactive Portfolio Site", sub: "Vite, React, JS, CSS, HTML", previewImage: "./src/assets/proj1/preview.gif", cats: ["software", "web", "writing"], link: "/work/portfolio-project" },
-    { id: uuidv4(), name: "Real Time 3D Renderer", sub: "Rust, OpenGL", previewImage: "./src/assets/proj1/preview.gif", cats: ["software"], link: "https://github.com/abbyeg" },
-    { id: uuidv4(), name: "Custom Shaders", sub: "GLSL", previewImage: "./src/assets/proj1/preview.gif", cats: ["software"] },
-    { id: uuidv4(), name: "Procedural Content Generation Tool", sub: "CSS", previewImage: "./src/assets/proj1/preview.gif", cats: ["software"] },
-    { id: uuidv4(), name: "Interactive Art Installation", sub: "CSS", previewImage: "./src/assets/proj1/preview.gif", cats: ["software"] },
-    { id: uuidv4(), name: "Rigging and Animation Toolkit", sub: "", previewImage: "./src/assets/proj1/preview.gif", cats: ["software"] },
-    { id: uuidv4(), name: "Building an Interactive Portfolio Site", sub: "Vite, React, JS, CSS, HTML", previewImage: "./src/assets/proj1/preview.gif", cats: ["software", "web", "writing"] },
+    { id: uuidv4(), name: "Building an Interactive Portfolio Site", sub: "Vite, React, JS, CSS, HTML", previewImage: "/proj1/preview.gif", cats: ["software", "web", "writing"], link: "/work/portfolio-project" },
+    { id: uuidv4(), name: "Real Time 3D Renderer", sub: "Rust, OpenGL", previewImage: "/proj1/preview.gif", cats: ["software"], link: "https://github.com/abbyeg" },
+    { id: uuidv4(), name: "Custom Shaders", sub: "GLSL", previewImage: "/proj1/preview.gif", cats: ["software"] },
+    { id: uuidv4(), name: "Procedural Content Generation Tool", sub: "CSS", previewImage: "/proj1/preview.gif", cats: ["software"] },
+    { id: uuidv4(), name: "Interactive Art Installation", sub: "CSS", previewImage: "/proj1/preview.gif", cats: ["software"] },
+    { id: uuidv4(), name: "Rigging and Animation Toolkit", sub: "", previewImage: "/proj1/preview.gif", cats: ["software"] },
+    { id: uuidv4(), name: "Building an Interactive Portfolio Site", sub: "Vite, React, JS, CSS, HTML", previewImage: "/proj1/preview.gif", cats: ["software", "web", "writing"] },
   ];
 
 
