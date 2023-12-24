@@ -33,8 +33,8 @@ const Navbar = () => {
                   WORK
                 </Link>
               </li> */}
-              <li className="navbar-item p-3">
-                <div className="flex flex-row">
+              <li className="navbar-item p-4">
+                <div className="flex flex-row pl-3">
                   <Socials filterWhite={true} />
                 </div>
               </li>

@@ -1,6 +1,6 @@
 import './App.css'
 import GlowingCursor from './components/fun/GlowingCursor';
-import { Outlet, useOutlet } from 'react-router-dom';
+import { useOutlet } from 'react-router-dom';
 import Footer from './components/layout/Footer';
 import Navbar from './components/layout/Navbar';
 import Home from './components/Home';

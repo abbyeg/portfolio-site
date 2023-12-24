@@ -23,8 +23,8 @@ Socials.propTypes = {
  
 const Footer = () => {
   return (
-    <div id="footer" className="py-6 px-4 w-full mt-auto flex flex-row justify-center opacity-20">
-      <Socials />
+    <div id="footer" className="py-6 px-4 w-full mt-auto flex flex-row justify-center">
+      <div className="opacity-20 flex"><Socials /></div>
     </div>
   );
 };
