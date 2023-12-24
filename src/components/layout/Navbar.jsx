@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ColorPicker from '../fun/ColorPicker';
+import { Socials } from './Footer';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,6 +33,7 @@ const Navbar = () => {
                   WORK
                 </Link>
               </li>
+              <li className="navbar-item p-3"><div className="flex flex-row"><Socials filterWhite={true} /></div></li>
             </ul>
           </div>
         </div>

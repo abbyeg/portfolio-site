@@ -13,7 +13,7 @@ const BlogPost = ({ post }) => {
   
   let prettyDate = date.toLocaleDateString("en-US", options);
   return (
-    <div className="fade-load mt-40 ml-10 mr-10 sm:ml-32 sm:mr-32 lg:ml-56 lg:mr-56 mb-10">
+    <div className="fade-load mt-40 ml-14 mr-14 sm:ml-32 sm:mr-32 lg:ml-56 lg:mr-56 mb-10">
       <div className="flex flex-wrap flex-col text-neutral-400">
       <div className="flex flex-row">
           <div className="font-extrabold text-4xl text-black">{title}</div>
